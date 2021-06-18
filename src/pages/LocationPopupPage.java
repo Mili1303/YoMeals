@@ -9,6 +9,7 @@ public class LocationPopupPage extends BasicPage{
 	public By location = By.xpath("//div[@class=\"location-selector\"]/a");
 	public By close = By.className("close-btn");
 	public By keyword = By.xpath("//*[@id='locality_keyword']");
+	public By locationItem = By.xpath("//li/a[contains(text(), '\" + locationName + \"')]/..");
 	
 	public WebElement getLocation() {
 		return this.driver.findElement(location);
@@ -20,6 +21,10 @@ public class LocationPopupPage extends BasicPage{
 	
 	public WebElement getKeyword() {
 		return this.driver.findElement(keyword);
+	}
+	
+	public WebElement getLocationItem() {
+		return this.driver.findElement(locationItem);
 	}
 
 	@Override

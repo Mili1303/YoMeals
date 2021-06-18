@@ -10,6 +10,7 @@ public class LoginPage extends BasicPage {
 	public By username = By.name("username");
 	public By password = By.name("password");
 	public By rememberMe = By.name("remember_me");
+	public By loginSubmit = By.name("btn_submit");
 	
 	public WebElement getLoginButton() {
 		return this.driver.findElement(loginButton);
@@ -25,6 +26,10 @@ public class LoginPage extends BasicPage {
 	
 	public WebElement getRememeberMe() {
 		return this.driver.findElement(rememberMe);
+	}
+	
+	public WebElement getLoginSubmit() {
+		return this.driver.findElement(loginSubmit);
 	}
 	
 

@@ -11,6 +11,7 @@ public class LocationPopupPage extends BasicPage{
 	public By keyword = By.xpath("//*[@id='locality_keyword']");
 	public By locationItem = By.xpath("//li/a[contains(text(), '\" + locationName + \"')]/..");
 	public By locationInput = By.xpath("//*[@id='location_id']");
+	public By submit = By.xpath("//*[@name='btn_submit']");
 	
 	public WebElement getLocation() {
 		return this.driver.findElement(location);
@@ -31,6 +32,11 @@ public class LocationPopupPage extends BasicPage{
 	public WebElement getLocationInput() {
 		return this.driver.findElement(locationInput);
 	}
+	
+	public WebElement getSubmit() {
+		return this.driver.findElement(submit);
+	}
+	
 	
 
 	@Override

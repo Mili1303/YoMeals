@@ -48,6 +48,10 @@ public class LocationPopupPage extends BasicPage {
 		js.executeScript(" arguments[0].value=arguments[1]", this.getLocationItem().getAttribute("data-value"));
 		js.executeScript("arguments[0].click();", this.getSubmit());
 	}
+	
+	public void closeWindow() {
+		this.getClose().click();
+	}
 
 	@Override
 	public boolean exists(WebDriver driver, By by) {

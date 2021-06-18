@@ -41,6 +41,10 @@ public class LocationPopupPage extends BasicPage{
 		this.driver.findElement(location).click();
 	}
 	
+	public void setLocation(String location) {
+		this.driver.findElement(locationInput).sendKeys(location);
+	}
+	
 	
 
 	@Override

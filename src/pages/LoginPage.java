@@ -9,6 +9,7 @@ public class LoginPage extends BasicPage {
 	public By loginButton = By.xpath("//*[@class=\"filled\"]/a");
 	public By username = By.name("username");
 	public By password = By.name("password");
+	public By rememberMe = By.name("remember_me");
 	
 	public WebElement getLoginButton() {
 		return this.driver.findElement(loginButton);
@@ -21,6 +22,11 @@ public class LoginPage extends BasicPage {
 	public WebElement getPassword() {
 		return this.driver.findElement(password);
 	}
+	
+	public WebElement getRememeberMe() {
+		return this.driver.findElement(rememberMe);
+	}
+	
 
 	@Override
 	public boolean exists(WebDriver driver, By by) {

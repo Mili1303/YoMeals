@@ -32,6 +32,13 @@ public class LoginPage extends BasicPage {
 		return this.driver.findElement(loginSubmit);
 	}
 	
+	public void userLogin(String email, String pass) {
+		this.getUsername().sendKeys(email);
+		this.getPassword().sendKeys(pass);
+		this.getRememeberMe().click();
+		this.getLoginSubmit().click();
+	}
+	
 
 	@Override
 	public boolean exists(WebDriver driver, By by) {

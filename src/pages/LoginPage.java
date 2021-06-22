@@ -1,11 +1,17 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasicPage {
 	
+	public LoginPage(WebDriver driver, JavascriptExecutor js, WebDriverWait waiter) {
+		super(driver, js, waiter);
+	}
+
 	public By loginButton = By.xpath("//*[@class=\"filled\"]/a");
 	public By username = By.name("username");
 	public By password = By.name("password");

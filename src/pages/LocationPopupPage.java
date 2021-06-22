@@ -53,10 +53,5 @@ public class LocationPopupPage extends BasicPage {
 		this.getClose().click();
 	}
 
-	@Override
-	public boolean exists(WebDriver driver, By by) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 }

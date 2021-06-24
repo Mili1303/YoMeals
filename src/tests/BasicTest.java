@@ -28,7 +28,7 @@ import pages.ProfilePage;
 import pages.SearchResultPage;
 
 public abstract class BasicTest {
-	
+
 	protected WebDriver driver;
 	protected JavascriptExecutor js;
 	protected WebDriverWait waiter;
@@ -45,18 +45,14 @@ public abstract class BasicTest {
 	protected String email;
 	protected String password;
 	protected String locationName;
-	
+
+//	configuring driver
 	@BeforeMethod
 	public void setUp() throws IOException {
 		System.setProperty("webdriver.chrome.driver", "driver-lib\\chromedriver.exe");
 		this.driver = new ChromeDriver();
 		this.js = (JavascriptExecutor) driver;
 		this.waiter = new WebDriverWait(driver, 10);
-
-		this.baseUrl = "http://demo.yo-meals.com/";
-		this.email = "customer@dummyid.com";
-		this.password = "12345678a";
-		this.locationName = "City Center - Albany";
 
 		this.driver.manage().window().maximize();
 		this.driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
@@ -70,11 +66,16 @@ public abstract class BasicTest {
 		this.mealPage = new MealPage(driver, js, waiter);
 		this.summaryPage = new CartSummaryPage(driver, js, waiter);
 		this.searchPage = new SearchResultPage(driver, js, waiter);
+		
+		this.baseUrl = "http://demo.yo-meals.com/";
+		this.email = "customer@dummyid.com";
+		this.password = "12345678a";
 	}
-	
+
 	@AfterMethod
 	public void cleanup(ITestResult results) throws IOException {
 
+//	taking a screenshot if test fails
 		if (ITestResult.FAILURE == results.getStatus()) {
 
 			TakesScreenshot screenshot = (TakesScreenshot) driver;
@@ -82,10 +83,8 @@ public abstract class BasicTest {
 			String file = new SimpleDateFormat("yyyy-MM-dd 'at' HH-mm-ss'.png'").format(new Date());
 			FileHandler.copy(source, new File("screenshots/" + results.getName() + "--" + file));
 		}
-		
+//	quitting the browser		
 		this.driver.quit();
 	}
-
-
 
 }

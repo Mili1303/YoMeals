@@ -81,7 +81,7 @@ public class ProfilePage extends BasicPage {
 		return this.driver.findElement(upload);
 	}
 	
-	public void uploadImg(String img) {
+	public void uploadPhoto(String img) {
 		js.executeScript("arguments[0].click();", this.getPhoto());
 		this.getUpload().sendKeys(img);
 	}
@@ -94,7 +94,7 @@ public class ProfilePage extends BasicPage {
 		js.executeScript("arguments[0].click();", this.getRemove());
 	}
 
-	public void changeInfo(String firstName, String lastName, String address, String phone, String zip,
+	public void editProfile(String firstName, String lastName, String address, String phone, String zip,
 			String country, String state, String city) throws InterruptedException {
 		this.getFirstName().clear();
 		this.getFirstName().sendKeys(firstName);

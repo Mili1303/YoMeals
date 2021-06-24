@@ -32,7 +32,7 @@ public abstract class BasicTest {
 	protected WebDriver driver;
 	protected JavascriptExecutor js;
 	protected WebDriverWait waiter;
-	protected SoftAssert sa;
+	protected SoftAssert softAssert;
 	protected LocationPopupPage locationPage;
 	protected LoginPage loginPage;
 	protected NotificationSystemPage notificationPage;
@@ -52,6 +52,7 @@ public abstract class BasicTest {
 		this.driver = new ChromeDriver();
 		this.js = (JavascriptExecutor) driver;
 		this.waiter = new WebDriverWait(driver, 10);
+		this.softAssert = new SoftAssert();
 
 		this.driver.manage().window().maximize();
 		this.driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);

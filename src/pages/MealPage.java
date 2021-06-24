@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MealPage extends BasicPage {
 	
 	// locators
-	public By favourite = By.id("item_119");
+	public By favorite = By.id("item_119");
 	public By add = By.xpath("//*[@class=\"price-feature--wrapper\"]/div[2]/a");
 	public By quantity = By.name("product_qty");
 
@@ -21,7 +21,7 @@ public class MealPage extends BasicPage {
 
 	// get methods for elements needed
 	public WebElement getFavourite() {
-		return this.driver.findElement(favourite);
+		return this.driver.findElement(favorite);
 	}
 	
 	public WebElement getAdd() {
@@ -33,7 +33,7 @@ public class MealPage extends BasicPage {
 	}
 	
 	// method for addint items to favourites
-	public void addToFavourite() {
+	public void addToFavorite() {
 		this.getFavourite().click();
 	}
 

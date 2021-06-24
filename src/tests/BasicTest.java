@@ -44,7 +44,6 @@ public abstract class BasicTest {
 	protected String baseUrl;
 	protected String email;
 	protected String password;
-	protected String locationName;
 
 //	configuring driver
 	@BeforeMethod

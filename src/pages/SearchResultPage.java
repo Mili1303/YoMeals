@@ -11,17 +11,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SearchResultPage extends BasicPage {
 	
+	// locator
 	public By searchResults = By.xpath("//*[@class='product-name']/a");
 
+	// constructor
 	public SearchResultPage(WebDriver driver, JavascriptExecutor js, WebDriverWait waiter) {
 		super(driver, js, waiter);
 	}
 	
+	// get method for all search results
 	public List<WebElement> getSearchResults() {
 		return this.driver.findElements(searchResults);
 	}
 
-
+	// method that returns the names of all meals
 	public ArrayList<String> getNames() {
 		ArrayList<String> names = new ArrayList<String>();
 		for (int i = 0; i < this.getSearchResults().size(); i++) {
@@ -30,7 +33,7 @@ public class SearchResultPage extends BasicPage {
 		return names;
 	}
 
-
+	// method that returns the number of search results
 	public int getNumber() {
 		return this.getSearchResults().size();
 	}

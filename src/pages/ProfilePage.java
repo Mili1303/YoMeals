@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProfilePage extends BasicPage {
 	
+	// locators
 	public By edit = By.xpath("By.xpath(\"//div[@class='action-profile']/a[2]\")");
 	public By firstName = By.name("user_first_name");
 	public By lastName = By.name("user_last_name");
@@ -23,10 +24,12 @@ public class ProfilePage extends BasicPage {
 	public By upload = By.xpath("By.xpath(\"//*[@id='form-upload']/input\")");
 	public By remove = By.className("remove");
 	
+	// constructor
 	public ProfilePage(WebDriver driver, JavascriptExecutor js, WebDriverWait waiter) {
 		super(driver, js, waiter);
 	}
 	
+	// get methods for elements needed
 	public WebElement getEdit() {
 		return this.driver.findElement(edit);
 	}
@@ -81,19 +84,22 @@ public class ProfilePage extends BasicPage {
 		return this.driver.findElement(upload);
 	}
 	
+	public WebElement getRemove() {
+		return this.driver.findElement(remove);
+	}
+	
+	// method for uploading photo
 	public void uploadPhoto(String img) {
 		js.executeScript("arguments[0].click();", this.getPhoto());
 		this.getUpload().sendKeys(img);
 	}
 	
-	public WebElement getRemove() {
-		return this.driver.findElement(remove);
-	}
-	
+	// method for removing photo
 	public void deleteImg() {
 		js.executeScript("arguments[0].click();", this.getRemove());
 	}
 
+	// method for changing all profile details
 	public void editProfile(String firstName, String lastName, String address, String phone, String zip,
 			String country, String state, String city) throws InterruptedException {
 		this.getFirstName().clear();
